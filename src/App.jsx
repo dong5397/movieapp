@@ -1,19 +1,19 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './page/Home.jsx';
-import MovieList from './page/MovieList.jsx';
-import MovieDetail from './page/MovieDetail.jsx';
-import Header from './components/Header.jsx';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./page/Home";
+import Header from "./components/Header";
+import MovieList from "./page/MovieList";
+import MovieDetail from "./page/MovieDetail";
+
 function App() {
   return (
-    <div>
-      <Header/>
+    <BrowserRouter>
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Movies" element={<MovieList />} />
-        <Route path="/Movie:/id" element={<MovieDetail />} />
+        <Route index element={<Home />} />
+        <Route path="movies/:type" element={<MovieList />} />
+        <Route path="movie/:id" element={<MovieDetail />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
